@@ -8,15 +8,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-
-        'hero-pattern': "url('/images/about.jpg')",
-
+        'hero-pattern': "url('/images/about-min.jpg')",
         // 'footer-texture': "url('/img/footer-texture.png')",
        }
     },
   },
-  variants: {
-    extend: {},
-  },
+  variants: {},
   plugins: [],
 }

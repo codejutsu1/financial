@@ -5,35 +5,73 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Financial Advisor</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script  src="{{ asset('js/app.js') }}" ></script>
     </head>
-    <body class="antialiased">
-        <header class="bg-opacity-80 bg-no-repeat bg-cover relative" style="background-image:url('/images/about.jpg')">
-            <div class="z-40 inset-0 absolute bg-black opacity-60"></div>
-            <div class="flex justify-between relative mx-auto w-11/12 py-8 z-50 text-white">
+    <body class="
+        antialiased 
+        relative" 
+        x-data="{navbarOpen: false, scrollFromTop: false}" 
+        x-init="window.pageYOffset > 422 ? scrollFromTop = true : scrollFromTop = false" 
+        @scroll.window="window.pageYOffset > 422 ? scrollFromTop = true : scrollFromTop = false"
+        :class="{
+            'overflow-hidden': navbarOpen,
+            'overflow-auto': !navbarOpen
+        }"    
+    >
+        
+
+        <header x-data="{ show: false }" class="fixed top-0 inset-x-0 z-50 transition-all duration-300" :class="{'bg-transparent': !scrollFromTop, 'bg-white shadow-lg': scrollFromTop}">
+            <div class="flex justify-between items-center w-11/12 mx-auto py-8 text-white" :class="{'text-white': !scrollFromTop, 'text-gray-800': scrollFromTop}">
                 <div>
                     <h1 class="text-3xl font-semibold"><a href="/">Financial Help</a></h1>
                 </div>
                 <nav class="md:block hidden">
                     <ul class="flex items-center">
                         <li>
-                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide">Home</a>
+                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Home</a>
                         </li>
                         <li>
-                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide">About</a>
+                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">About</a>
                         </li>
                         <li>
-                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide">Our Services</a>
+                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Our Services</a>
                         </li>
                         <li>
-                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide">Resources</a>
+                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Resources</a>
                         </li>
                         <li>
-                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide">Contact</a>
+                            <a href="#" class="pr-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Contact</a>
                         </li>
                     </ul>
                 </nav>
+                <button class="md:hidden fixed text-2xl right-8 top-8 z-50" @click="navbarOpen = !navbarOpen">
+                    <i class="fa " :class="navbarOpen ? 'fa-times' : 'fa-bars'"></i>
+                </button>
+                <div class="hidden w-full h-full z-40 inset-0 fixed bg-black opacity-60" :class="{'hidden': !navbarOpen, 'block': navbarOpen}"></div>
+                <div class="hidden" :class="{'hidden': !navbarOpen, 'block': navbarOpen}">
+                    <ul class="bg-white inset-x-8 z-50 fixed text-blue-400 pb-20 rounded-md top-28">
+                        <li>
+                            <a href="#" class="block pt-6 pl-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Home</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block pt-6 pl-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">About</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block pt-6 pl-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Our Services</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block pt-6 pl-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Resources</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block pt-6 pl-5 font-semibold text-lg tracking-wide hover:text-blue-300 transition ease-in duration-500">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="z-50 relative">
+        </header>
+        <section class="relative bg-opacity-80 pt-16 bg-no-repeat bg-cover bg-hero-pattern">
+            <div class="z-30 inset-0 absolute bg-black opacity-60"></div>
+            <div class="z-40 relative">
                 <div class="md:w-4/5 w-11/12 mx-auto text-center py-24 text-gray-200">
                     <h2 class="md:text-7xl leading-10 text-4xl font-bold">
                         Find your road to financial freedom
@@ -41,12 +79,12 @@
                     <p class="md:text-3xl text-2xl font-semibold pt-4 md:pt-8 pb-12">
                         It's time to make your money work for you.
                     </p>
-                    <a href="#" class="bg-blue-200 px-5 py-4 rounded-3xl font-semibold text-lg text-black tracking-wide">
+                    <a href="#" class="bg-blue-200 px-5 py-4 rounded-3xl font-semibold text-lg text-black tracking-wide border-2 border-blue-200 hover:bg-white transition ease-in duration-300">
                         Learn more
                     </a>
                 </div>
             </div>
-        </header>
+        </section>
         <main>
             <section class="py-12">
                 <div>
@@ -93,7 +131,7 @@
                     </div>
                 </div>
             </section>
-            <section class="relative py-12 bg-cover bg-no-repeat" style="background-image: url(images/finance.jpg);">
+            <section class="relative py-12 bg-cover bg-no-repeat" style="background-image: url(images/finance-min.jpg);">
                 <div class="z-40 inset-0 absolute bg-black opacity-80"></div>
                 <div class="relative z-40">
                     <h2 class="text-center text-4xl font-medium text-gray-300">
@@ -141,63 +179,63 @@
             </section>
             <section class="py-12 text-center bg-gray-200">
                 <p class="text-3xl md:text-5xl font-semibold tracking-wide py-5 text-gray-700 pb-10">Not sure where to start</p>
-                <a href="#" class="py-4 px-8 rounded-3xl bg-blue-200  text-base md:text-lg font-semibold">Schedule a time to talk</a>
+                <a href="#" class="py-4 px-8 rounded-3xl bg-blue-200  text-base md:text-lg font-semibold hover:bg-white border-2 border-blue-200 transition ease-in duration-500">Schedule a time to talk</a>
             </section>
             <section class="py-12">
                 <h2 class="text-center text-4xl font-medium pb-14">Featured By</h2>
                 <div class="grid md:grid-cols-4 w-4/5 mx-auto">
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-1.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-2.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-3.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-4.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-5.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-6.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-7.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
-                    <div class="border flex items-center p-10">
-                        <img src="images/client-8.png" alt="Clients" class="w-32 mx-auto">
-                    </div>
+                    <a href="#" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-1-min.png" alt="Clients" class="w-32 mx-auto filter grayscale group-hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
+                    <a href="#" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-2-min.png" alt="Clients" class="w-32 mx-auto filter grayscale hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
+                    <a href="" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-3-min.png" alt="Clients" class="w-32 mx-auto filter grayscale hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
+                    <a href="" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-4-min.png" alt="Clients" class="w-32 mx-auto filter grayscale hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
+                    <a href="" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-5-min.png" alt="Clients" class="w-32 mx-auto filter grayscale hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
+                    <a href="" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-6-min.png" alt="Clients" class="w-32 mx-auto filter grayscale hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
+                    <a href="" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-7-min.png" alt="Clients" class="w-32 mx-auto filter grayscale hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
+                    <a href="#" class="mx-auto w-full border flex group items-center p-10">
+                        <img src="images/client-8-min.png" alt="Clients" class="w-32 mx-auto filter grayscale hover:grayscale-0 transition duration-300 ease-in">
+                    </a>
                 </div>
             </section>
             <section class="py-12 bg-gray-200">
                 <h2 class="text-center text-4xl font-medium pb-14">Our Team</h2>
                 <div class="grid md:grid-cols-4 w-4/5 gap-10 mx-auto">
                     <div>
-                        <img src="images/team-1.jpg" alt="team">
+                        <img src="images/team-1-min.jpg" alt="team">
                         <p class="font-semibold text-xl pt-4 text-center tracking-wider">Chief Eze Olamide</p>
                         <span class="text-center text-medium block text-gray-600 font-thin tracking-wider">CEO</span>
                     </div>
                     <div>
-                        <img src="images/team-2.jpg" alt="team">
-                        <p class="font-semibold text-xl pt-4 text-center tracking-wider">Mrs. Maryamm Chinenye</p>
+                        <img src="images/team-2-min.jpg" alt="team">
+                        <p class="font-semibold text-xl pt-4 text-center tracking-wider">Mrs. Chiamaka Alexandra</p>
                         <span class="text-center text-medium block text-gray-600 font-thin tracking-wider">Secretary</span>
                     </div>
                     <div>
-                        <img src="images/team-3.jpg" alt="team">
+                        <img src="images/team-3-min.jpg" alt="team">
                         <p class="font-semibold text-xl pt-4 text-center tracking-wider">Mr. Tosin Okechukwu</p>
                         <span class="text-center text-medium block text-gray-600 font-thin tracking-wider">Tax Expert</span>
                     </div>
                     <div>
-                        <img src="images/team-4.jpg" alt="team">
+                        <img src="images/team-4-min.jpg" alt="team">
                         <p class="font-semibold text-xl pt-4 text-center tracking-wider">Dr. Ngozi Amaka</p>
                         <span class="text-center text-medium block text-gray-600 font-thin tracking-wider">Financial Expert</span>
                     </div>
                 </div>
             </section>
-            <section style="background-image:url(images/map.jpg)" class="py-12 relative">
+            <section style="background-image:url(images/map-min.jpg)" class="py-12 relative">
             <div class="z-40 inset-0 absolute bg-black opacity-80"></div>
                 <h2 class="text-center text-4xl text-blue-200 relative z-50 font-medium pb-14">Contact Us</h2>
                 <div class="md:flex justify-between w-4/5 mx-auto relative z-50">
@@ -295,30 +333,44 @@
                 <div class="md:pl-8">
                     <p class="leading-8">Subscribe to our newsletter to receive weekly tips on financial topics that interest you the most</p>
                     <form action="" class="mt-5 tracking-widest">
-                        <input type="text" name="subscribe" placeholder="Subscribe" class="py-3 pl-5 rounded-md tracking-wider w-3/5 ">
-                        <input type="submit" name="subscribeSubmit" value="Submit" class="py-3 px-5 rounded-md tracking-wider">
+                        <input type="text" name="subscribe" placeholder="Subscribe" class="py-3 pl-5 rounded-lg tracking-wider w-3/5 ">
+                        <input type="submit" name="subscribeSubmit" value="Submit" class="py-3 px-5 rounded-lg tracking-wider">
                     </form>
                     <div>
-                        <ul>
+                        <ul class="flex w-full md:w-3/5 mt-7 p-5 justify-between">
                             <li>
-                                <i class="fa fa-facebook"></i>
+                                <a href="https://facebook.com">
+                                    <i class="fab fa-facebook text-2xl"></i>
+                                </a>
                             </li>
                             <li>
-                                <i class="fa fa-twitter"></i>
+                                <a href="https://twitter.com">
+                                    <i class="fab fa-twitter text-2xl"></i>
+                                </a>
                             </li>
                             <li>
-                                <i class="fa fa-instagram"></i>
+                                <a href="https://instagram.com">
+                                    <i class="fab fa-instagram text-2xl"></i>
+                                </a>
                             </li>
                             <li>
-                                <i class="fa fa-whatsapp"></i>
+                                <a href="https://whatsapp.com">
+                                    <i class="fab fa-whatsapp text-2xl"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="w-4/5 mx-auto text-gray-700 tracking-wider text-sm py-5">
-                <p>2021 Financial help. All Rights Reserved | <a href="#">Privacy Policy</a></p>
+                <p>2021 &copy;Financial help. All Rights Reserved | <a href="#">Privacy Policy</a></p>
+                <p class="text-xs mt-1">Design by <a href="mailto:codejutsu@protonmail.com" class="text-black   ">Dunu Daniel (Codejutsu)</a></p>
             </div>
         </footer>
+<script>
+    Alpine.start()
+</script>
+        <!-- <script src="@fortawesome/fontawesome-free/js/all.js"></script>
+        <script src="/node_modules/dist/cdn.min.js"></script> -->
     </body>
 </html>

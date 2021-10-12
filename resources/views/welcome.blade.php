@@ -236,9 +236,9 @@
                 </div>
             </section>
             <section style="background-image:url(images/map-min.jpg)" class="py-12 relative">
-            <div class="z-40 inset-0 absolute bg-black opacity-80"></div>
-                <h2 class="text-center text-4xl text-blue-200 relative z-50 font-medium pb-14">Contact Us</h2>
-                <div class="md:flex justify-between w-4/5 mx-auto relative z-50">
+            <div class="z-30 inset-0 absolute bg-black opacity-80"></div>
+                <h2 class="text-center text-4xl text-blue-200 relative z-40 font-medium pb-14">Contact Us</h2>
+                <div class="md:flex justify-between w-4/5 mx-auto relative z-40">
                     <div class="text-gray-200 text-lg tracking-wider">
                         <div>
                             <h4 class="text-3xl font-semibold">Office</h4>

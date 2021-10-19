@@ -9,7 +9,6 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/images/about-min.jpg')",
-        // 'footer-texture': "url('/img/footer-texture.png')",
        }
     },
   },

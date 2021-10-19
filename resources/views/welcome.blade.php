@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Financial Advisor</title>
+        <meta name="description" content="A financial template which can be used to promote business brand and increase sales."/>
+        <meta name="theme-color" content="#BFDBFE"/>
+        <title>Financial Advisor </title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script  src="{{ asset('js/app.js') }}" ></script>
         <script src="https://use.fontawesome.com/af1d23cda8.js"></script>
@@ -67,7 +69,7 @@
                                 </li>
                             </ul>
                         </nav>
-                        <button class="md:hidden fixed text-2xl right-8 top-8 z-50" @click="navbarOpen = !navbarOpen">
+                        <button class="md:hidden fixed text-2xl right-8 top-8 z-50" @click="navbarOpen = !navbarOpen" aria-label="open menubar">
                             <i class="fa " :class="navbarOpen ? 'fa-times' : 'fa-bars'"></i>
                         </button>
                         <div class="hidden w-full h-full z-40 inset-0 fixed bg-black opacity-60" :class="{'hidden': !navbarOpen, 'block': navbarOpen}"></div>
@@ -105,9 +107,9 @@
                 <section class="bg-opacity-80 pt-16">
                     <div class="z-40 relative">
                         <div class="md:w-4/5 w-11/12 mx-auto text-center py-24 text-gray-200">
-                            <h2 class="md:text-7xl leading-10 text-4xl font-bold">
+                            <h1 class="md:text-7xl leading-10 text-4xl font-bold">
                                 Find your road to financial freedom
-                            </h2>
+                            </h1>
                             <p class="md:text-3xl text-2xl font-semibold pt-4 md:pt-8 pb-12">
                                 It's time to make your money work for you.
                             </p>
@@ -121,9 +123,9 @@
             <main>
                 <section class="py-12">
                     <div>
-                        <h2 class="text-center text-4xl font-medium">
+                        <h1 class="text-center text-4xl font-medium">
                             About Us
-                        </h2>
+                        </h1>
                         <div class="grid md:grid-cols-4 w-11/12 mx-auto justify-items-center py-8">
                             <a href="#" class="text-gray-800 pb-10">
                                 <div class="w-32 h-32 rounded-full bg-blue-500 border-8 border-white z-30 relative flex items-center pl-6 mx-auto">
@@ -177,18 +179,18 @@
                 <section class="relative py-12 bg-cover bg-no-repeat" style="background-image: url(images/finance-min.jpg);">
                     <div class="z-40 inset-0 absolute bg-black opacity-80"></div>
                     <div class="relative z-40">
-                        <h2 class="text-center text-4xl font-medium text-gray-300">
+                        <h1 class="text-center text-4xl font-medium text-gray-300">
                             Our Services
-                        </h2>
+                        </h1>
                         <div class="w-11/12 mx-auto grid md:grid-cols-2 justify-items-center py-8 text-white">
                             <div class="flex pb-20 md:pb-0">
                                 <div class="w-28">
                                     <img src="images/save-money.svg" class="w-full" alt="Financial Planning">
                                 </div>
                                 <div class="pl-4 md:pr-7">
-                                    <h3 class="text-3xl pb-7 font-semibold tracking-wider">
+                                    <h2 class="text-3xl pb-7 font-semibold tracking-wider">
                                         Financial Planning
-                                    </h3>
+                                    </h2>
                                     <p class="tracking-wide text-gray-200">
                                         We'll work to analyse your unique financial situation and provide easy-to -understand recommendation for your business.
                                     </p>
@@ -199,9 +201,9 @@
                                     <img src="images/handshake.svg" class="w-full" alt="Retirement Planning">
                                 </div>
                                 <div class="pl-4 md:pr-7">
-                                    <h3 class="text-2xl md:text-3xl pb-7 font-semibold tracking-wider">
+                                    <h2 class="text-2xl md:text-3xl pb-7 font-semibold tracking-wider">
                                         Retirement Planning
-                                    </h3>
+                                    </h2>
                                     <p class="tracking-wide text-gray-200">
                                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi neque voluptatibus corrupti, itaque porro voluptatum rem accusamus et laborum iure? Aspernatur optio et pariatur minus eveniet vel. Atque, vero officia!
                                     </p>
@@ -212,9 +214,9 @@
                                     <img src="images/deal.svg" class="w-full" alt="Estate Planning">
                                 </div>
                                 <div class="pl-4 md:pr-7">
-                                    <h3 class="text-3xl pb-7 font-semibold tracking-wider">
+                                    <h2 class="text-3xl pb-7 font-semibold tracking-wider">
                                         Estate Planning
-                                    </h3>
+                                    </h2>
                                     <p class="tracking-wide text-gray-200">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aliquid saepe asperiores cum facilis, inventore fuga eaque beatae dolores ullam architecto sapiente eius. Veritatis voluptates magnam quas deserunt saepe harum?
                                     </p>
@@ -225,9 +227,9 @@
                                     <img src="images/stock-exchange-app.svg" class="w-full" alt="Investment Planning">
                                 </div>
                                 <div class="pl-4 md:pr-7">
-                                    <h3 class="text-3xl pb-7 font-semibold tracking-wider">
+                                    <h2 class="text-3xl pb-7 font-semibold tracking-wider">
                                         Investment Planning
-                                    </h3>
+                                    </h2>
                                     <p class="tracking-wide text-gray-200">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio velit minus illo laudantium totam. Repellendus accusantium assumenda, labore autem facilis quas dicta minima eveniet mollitia adipisci impedit neque eligendi itaque.
                                     </p>
@@ -245,9 +247,9 @@
                     </a>
                 </section>
                 <section class="py-12">
-                    <h2 class="text-center text-4xl font-medium pb-14">
+                    <h1 class="text-center text-4xl font-medium pb-14">
                         Featured By
-                    </h2>
+                    </h1>
                     <div class="grid md:grid-cols-4 w-4/5 mx-auto">
                         <a href="#" class="mx-auto w-full border flex group items-center p-10">
                             <img src="images/client-1-min.png" alt="Clients" class="w-32 mx-auto filter grayscale group-hover:grayscale-0 transition duration-300 ease-in">
@@ -276,14 +278,14 @@
                     </div>
                 </section>
                 <section class="py-12 bg-gray-200">
-                    <h2 class="text-center text-4xl font-medium pb-14">
+                    <h1 class="text-center text-4xl font-medium pb-14">
                         Our Team
-                    </h2>
+                    </h1>
                     <div class="grid md:grid-cols-4 w-4/5 gap-10 mx-auto">
                         <div>
                             <img src="images/team-1-min.jpg" alt="team">
                             <p class="font-semibold text-xl pt-4 text-center tracking-wider">
-                                Chief man 1
+                                Mr man 1
                             </p>
                             <span class="text-center text-medium block text-gray-600 font-thin tracking-wider">
                                 CEO
@@ -320,15 +322,15 @@
                 </section>
                 <section style="background-image:url(images/map-min.jpg)" class="py-12 relative">
                     <div class="z-30 inset-0 absolute bg-black opacity-80"></div>
-                    <h2 class="text-center text-4xl text-blue-200 relative z-40 font-medium pb-14">
+                    <h1 class="text-center text-4xl text-blue-200 relative z-40 font-medium pb-14">
                         Contact Us
-                    </h2>
+                    </h1>
                     <div class="md:flex justify-between w-4/5 mx-auto relative z-40">
                         <div class="text-gray-200 text-lg tracking-wider">
                             <div>
-                                <h4 class="text-3xl font-semibold">
+                                <h2 class="text-3xl font-semibold">
                                     Office
-                                </h4>
+                                </h2>
                                 <p>
                                     Ambassador layout street
                                 </p>
@@ -346,9 +348,9 @@
                             </div>
 
                             <div>
-                                <h3>
+                                <h2>
                                     Opening hours:
-                                </h3>
+                                </h2>
                                 <p>
                                     Monday - Fridays - 8:00 - 23:00
                                 </p>
